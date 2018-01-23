@@ -1,0 +1,6 @@
+2018-01-23 10:19:52,926 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2018-01-23 10:20:12,028 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.util.log - Logging initialized @59023ms
+2018-01-23 10:20:12,532 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2018-01-23 10:20:12,887 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3c70528a{/,null,AVAILABLE}
+2018-01-23 10:20:13,193 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@3c0d6e7b{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-01-23 10:20:13,193 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @60189ms
