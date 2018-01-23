@@ -1,12 +1,10 @@
 package ia;
 
 import core.InterfaceIA;
-import factory.IFactoryIA;
 
-public class FactoryIAV1 implements IFactoryIA {
-
-	@Override
-	public InterfaceIA genererIA() {
+public abstract class FactoryIAV1{
+	
+	public static InterfaceIA genererIA() {
 		return new IAV1();
 	}
 
