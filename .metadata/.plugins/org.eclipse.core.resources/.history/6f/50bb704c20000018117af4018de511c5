@@ -1,0 +1,14 @@
+package ihm;
+
+import core.interfaceIHM;
+
+public class IHMV1 implements interfaceIHM{
+	
+	private 
+
+	public IHMV1() {
+		
+		
+	}
+	
+}
