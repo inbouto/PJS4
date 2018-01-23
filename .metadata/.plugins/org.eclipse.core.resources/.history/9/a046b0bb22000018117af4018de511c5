@@ -1,0 +1,11 @@
+package core;
+
+public interface interfaceIHM {
+
+	String traitement(String st);
+
+	String traitement(String stInitiale);
+
+	
+	
+}

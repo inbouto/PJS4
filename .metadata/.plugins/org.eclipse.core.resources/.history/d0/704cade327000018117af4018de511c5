@@ -1,0 +1,14 @@
+package factory;
+
+import core.InterfaceIHM;
+import ihm.IHMV1;
+
+public class IHMFactory implements InterfaceIHMFactory {
+
+	public InterfaceIHM creerIHM(String type){
+		InterfaceIHM ihm = null;
+		if (type == "IHMV1")
+			ihm = new IHMV1();
+		return ihm;
+	}
+}
