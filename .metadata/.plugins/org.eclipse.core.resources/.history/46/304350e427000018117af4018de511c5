@@ -1,0 +1,9 @@
+package factory;
+
+import core.InterfaceIHM;
+
+public interface InterfaceIHMFactory {
+
+	InterfaceIHM creerIHM (String type);
+	
+}
