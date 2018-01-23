@@ -1,0 +1,24 @@
+package ihm;
+
+import java.util.Scanner;
+
+import core.interfaceIHM;
+
+public class IHMV1 implements interfaceIHM{
+	
+	private Scanner sc;
+	//private String message = null;
+
+	public IHMV1() {
+		this.sc = new Scanner(System.in);
+	}
+	
+	public String saisie() {
+		return sc.nextLine();
+	}
+	
+	public String lecture() {		
+		 return message;		
+	}
+	
+}
