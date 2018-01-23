@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import core.InterfaceIA;
 
-public class TestIA {
+public class TestIAV1 {
 
 	@Test
 	public void test() {
