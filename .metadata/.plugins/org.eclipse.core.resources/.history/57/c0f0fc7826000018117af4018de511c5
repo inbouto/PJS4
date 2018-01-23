@@ -1,0 +1,10 @@
+package core;
+
+public interface interfaceIHM {
+
+	public String saisie();
+	
+	public void affichage(String param);
+	
+	
+}
