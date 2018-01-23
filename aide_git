@@ -1,0 +1,28 @@
+etape 1 : récupérer le projet en local
+
+git clone https://github.com/inbouto/PJS4
+
+etape 2 : se mettre sur la bonne branche
+
+git checkout [NOM_DE_BRANCHE]
+
+etape 3 : commit ses changements
+
+git commit
+
+etape 4 : push (upload) ses commits
+
+git push
+
+
+
+
+
+pour pull (télécharger une branche en local, c-a-d notre work tree), on fait
+
+git pull <remote> <nom_de_branche>
+
+/!\ : <remote> sera (probablement toujours) "origin".
+
+Attention : quand vous faites cela, vous allez pull la branche nom_de_branche vers votre branche courante. Cela veut dire que votre dossier de travail actual (ce qu'on appelle le work tree) est maintenant composé du contenu de nom_de_branche. VOUS PERDREZ DONC TOUT CHANGEMENT NON PUSH !!
+
