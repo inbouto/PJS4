@@ -1,25 +1,36 @@
 package core;
 
-public abstract class CoreComponentManager {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentSkipListSet;
 
-	private static Class<? extends CoreComponent> loadedComponent;
+public class CoreComponentManager {
+
+	//WARNING : N'EST PAS THREAD-SAFE !!!!!
+	
+	//TODO: TESTS
+	static{
+		loadedComponents = new ArrayList<Class<? extends CoreComponent>>();
+	}
+	
+	private static List<Class<? extends CoreComponent>> loadedComponents;
 	
 	public static void init(Class<? extends CoreComponent> c){
-		loadedComponent = c;
+		loadedComponents.add(c);
 	}
 	
-	protected static Class<? extends CoreComponent> getComponentClass(){
-		return loadedComponent;
-	}
 	
-	public static CoreComponent getComponent() {
+	
+	public static void getComponent() {
 		try {
-			return loadedComponent.newInstance();
-		} catch (InstantiationException | IllegalAccessException e) {
-			
-			e.printStackTrace();
-		}
-		return null;
+			for(Class<? extends CoreComponent> c : loadedComponents)
+				c.newInstance().init();
+			} catch (InstantiationException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
+	
+	
 	
 }
