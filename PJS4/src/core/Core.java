@@ -1,6 +1,6 @@
 package core;
 
-import ia.FactoryIA;
+import ia.IACoreComponentManager;
 import ihm.FactoryIHM;
 
 public class Core {
@@ -8,7 +8,7 @@ public class Core {
 	private static InterfaceIA ia;
 	
 	public static void main(String[] args) {
-		ia = FactoryIA.genererIA();
+		ia = IACoreComponentManager.genererIA();
 		ihm = FactoryIHM.genererIHM();
 		while(true)
 			ihm.affichage(ia.genererReponse(ihm.saisie()));

@@ -10,7 +10,7 @@ public class TestIAV1 {
 
 	@Test
 	public void test() {
-		InterfaceIA ia = FactoryIA.genererIA();
+		InterfaceIA ia = IACoreComponentManager.genererIA();
 		String question = "Comment allez-vous ?";
 		String result = ia.genererReponse(question);
 		assertEquals(result, "Her name is Caroline");
