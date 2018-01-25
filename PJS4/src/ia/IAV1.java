@@ -1,28 +1,25 @@
 package ia;
 
 import core.Core;
-import core.CoreComponent;
-import core.CoreComponentManager;
+import core.ICoreComponent;
 import core.InterfaceIA;
+import coreComponents.ComponentType;
+import coreComponents.CoreComponentManager;
 
-public class IAV1 implements InterfaceIA, CoreComponent {
-
-	//Ceci est une utilisation de bloc statique pour appeller le CoreComponentManager correspondant à l'IA
-	static{
-		CoreComponentManager.init(IAV1.class);
-	}
+public class IAV1 implements InterfaceIA, ICoreComponent {
+	
 	
 	@Override
 	public String genererReponse(String question) {
+		
 		return "Her name is Caroline";
 	}
 
 	
 	//Ceci est un exemple de comment un CoreComponent s'initialise au sein du core.
-	
 	@Override
-	public void init() {
-		Core.setIa(this);
+	public ComponentType getCoreComponentType() {
+		return ComponentType.IA;
 	}
 
 }

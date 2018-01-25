@@ -1,7 +1,7 @@
 package ia;
 
-import core.CoreComponentManager;
 import core.InterfaceIA;
+import coreComponents.CoreComponentManager;
 
 public abstract class IACCM extends CoreComponentManager{
 	

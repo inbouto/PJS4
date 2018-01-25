@@ -1,29 +1,34 @@
 package core;
 
-import ia.IACCM;
-import ihm.FactoryIHM;
-
 public class Core {
+	
+	private static ICoreComponentManager CCM;
 	
 	
 	
 	
 	public static void main(String[] args) {
-		ia = IACCM.genererIA();
-		ihm = FactoryIHM.genererIHM();
-		while(true)
-			ihm.affichage(ia.genererReponse(ihm.saisie()));
+		
+		try {
+			CCM = (ICoreComponentManager) Class.forName(args[0]).newInstance();
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			System.err.println("Impossible de charger le CoreComponentManager. L'application va maintenant se fermer.");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+		CCM.initComponents();
+		
 	}
 	
-	private static InterfaceIHM ihm;
-	private static InterfaceIA ia;
-	
-	public static void setIhm(InterfaceIHM ihm) {
-		Core.ihm = ihm;
+	public static InterfaceIA getIA() {
+		return CCM.getIA();
 	}
 
-	public static void setIa(InterfaceIA ia) {
-		Core.ia = ia;
+	public static InterfaceIHM getIHM() {
+		return CCM.getIHM();
+	}
+	public static InterfaceDonnees getDonnees() {
+		return CCM.getDonnees();
 	}
 
 	
