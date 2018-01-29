@@ -410,3 +410,15 @@ java.io.IOException: Le processus ne peut pas accéder au fichier car un autre p
 	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:228)
 	at org.eclipse.egit.ui.internal.staging.StagingView$49.run(StagingView.java:2553)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.egit.ui 4 0 2018-01-29 13:55:59.963
+!MESSAGE Le processus ne peut pas accéder au fichier car un autre processus en a verrouillé une partie
+!STACK 0
+java.io.IOException: Le processus ne peut pas accéder au fichier car un autre processus en a verrouillé une partie
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(Unknown Source)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:303)
+	at org.eclipse.jgit.internal.storage.file.ObjectDirectoryInserter.insert(ObjectDirectoryInserter.java:103)
+	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:228)
+	at org.eclipse.egit.ui.internal.staging.StagingView$49.run(StagingView.java:2553)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
