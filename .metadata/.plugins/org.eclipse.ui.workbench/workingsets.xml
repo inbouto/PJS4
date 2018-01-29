@@ -4,5 +4,6 @@
 <item elementID="=PJS4" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1516699186364_0" label="Window Working Set" name="Aggregate for window 1516699186364"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1517226608613_2" label="Window Working Set" name="Aggregate for window 1517226608613"/>
 <mruList name="IHM"/>
 </workingSetManager>

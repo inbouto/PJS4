@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="IHMTest" project="PJS4" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="ihm.IHMTest" time="6.357">
-    <testcase name="test" classname="ihm.IHMTest" time="6.357"/>
-  </testsuite>
-</testrun>
