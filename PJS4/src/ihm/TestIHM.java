@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import core.InterfaceIHM;
 
-public class IHMTest {
+public class TestIHM {
 
 	@Test
 	public void test() {
