@@ -1,0 +1,8 @@
+IHM, côté interface :
+- radioButtons avec nom de classes à côté 
+- afficher la phrase à tester
+- bouton pour "skip" la phrase actuelle (si on ne sait pas répondre)
+- possibilité d'entrer une phrase au lieu de celle donnée
+IHM, côté code :
+- nombre de radioButtons et leurs noms flexible
+- pouvoir récupérer la phrase testée et le nom de la classe sélectionnée
