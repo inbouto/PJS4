@@ -37,7 +37,7 @@ public class CoreComponentManager implements ICoreComponentManager {
 		loadedComponents = new ArrayList<Class<? extends ICoreComponent>>();
 	}
 
-	public void init(Class<? extends ICoreComponent> c){
+	public void add(Class<? extends ICoreComponent> c){
 		loadedComponents.add(c);
 	}
 
@@ -73,22 +73,24 @@ public class CoreComponentManager implements ICoreComponentManager {
 				default:
 					throw new UnknownComponentTypeException();
 				}
-				
 			} catch (InstantiationException | IllegalAccessException | UnknownComponentTypeException e) {
 				System.err.println("Le CoreComponent : " + c.toString() + "n'a pas pu être lancé");
 				e.printStackTrace();
 			}
 		}
-			
-		
 	}
 
 	
 	
 	//Cette fonction charge tous les Components précisés dans le fichier d"initialisation
 	private void getComponentsFromFile(String string) throws IOException, ClassNotFoundException {
-		for(String s : Files.readAllLines(FileSystems.getDefault().getPath(string)))
-			Class.forName(s);
+		for(String s : Files.readAllLines(FileSystems.getDefault().getPath(string))){
+			if(ICoreComponent.class.isAssignableFrom(Class.forName(s))){
+				//ENCORE UN CAST (meme avec le if, c'est sale)
+				this.add((Class<? extends ICoreComponent>) Class.forName(s));
+				System.out.println(s + " ajouté à la liste des Components chargés");
+			}
+		}
 	}
 
 	@Override
@@ -105,14 +107,6 @@ public class CoreComponentManager implements ICoreComponentManager {
 	public InterfaceDonnees getDonnees() {
 		return donnees;
 	}
-	
-	/*
-	 * TODO : implémenter
-	@Override
-	public InterfaceDonnees getDonnees() {
-		return Donnees;
-	}
-	*/
 	
 	
 	

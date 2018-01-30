@@ -10,6 +10,8 @@ public class Core {
 	public static void main(String[] args) {
 		
 		try {
+			//Si vous avez l'exception "ArrayIndexOutOfBounds", assurrez-vous que vous avez bien set l'argument en ligne de commande à coreComponents.CoreComponentManager
+			//allez dans Run->Run configurations->Arguments et ajoutez coreComponents.CoreComponentManager
 			CCM = (ICoreComponentManager) Class.forName(args[0]).newInstance();
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 			System.err.println("Impossible de charger le CoreComponentManager. L'application va maintenant se fermer.");
@@ -17,6 +19,8 @@ public class Core {
 			System.exit(-1);
 		}
 		CCM.initComponents();
+		//Juste une ligne pour tester si le Component chargé marche bien
+		System.out.println(CCM.getIA().genererReponse("Salut"));
 		
 	}
 	
