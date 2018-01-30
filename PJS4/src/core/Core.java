@@ -20,7 +20,7 @@ public class Core {
 		}
 		CCM.initComponents();
 		//Juste une ligne pour tester si le Component chargé marche bien
-		System.out.println(CCM.getIA().genererReponse("Salut"));
+		CCM.getIHM().affichage(CCM.getIA().genererReponse(CCM.getIHM().saisie()));
 		
 	}
 	
