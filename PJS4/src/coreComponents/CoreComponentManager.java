@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentSkipListSet;
 
-import core.ICoreComponent;
 import core.ICoreComponentManager;
 import core.InterfaceDonnees;
 import core.InterfaceIA;
@@ -16,7 +15,7 @@ import core.InterfaceIHM;
 public class CoreComponentManager implements ICoreComponentManager {
 
 	
-	private ArrayList<Class<? extends ICoreComponent>> loadedComponents;
+	private ArrayList<Class<?>> loadedComponents;
 	private InterfaceIHM ihm;
 	private InterfaceIA ia;
 	private String initFile;
@@ -34,11 +33,11 @@ public class CoreComponentManager implements ICoreComponentManager {
 	
 	public CoreComponentManager(String initFile) {
 		this.initFile = initFile;
-		loadedComponents = new ArrayList<Class<? extends ICoreComponent>>();
+		loadedComponents = new ArrayList<Class<?>>();
 	}
 
-	public void add(Class<? extends ICoreComponent> c){
-		loadedComponents.add(c);
+	public void add(Class<?> class1){
+		loadedComponents.add(class1);
 	}
 
 	
@@ -55,24 +54,25 @@ public class CoreComponentManager implements ICoreComponentManager {
 			System.err.println("Le fichier d'initialisation n'a pas pu être chargé");
 			e1.printStackTrace();
 		}
-		for(Class<? extends ICoreComponent> c : loadedComponents){
+		for(Class<?> c : loadedComponents){
 			try {
-				ICoreComponent cc = c.newInstance();
-				switch(cc.getCoreComponentType()){
-				case IA:
+				Object cc = c.newInstance();
+				if(InterfaceIA.class.isAssignableFrom(cc.getClass())){
 					//TODO: Code sale, peut-on faire autrement qu'un cast ???
 					this.ia = (InterfaceIA) cc;
-					break;
-				case Donnees:
-					//TODO: implémenter les donnees
-					//this.donnees = (InterfaceDonnees) cc;
-					break;
-				case IHM:
-					this.ihm = (InterfaceIHM) cc;
-					break;
-				default:
-					throw new UnknownComponentTypeException();
 				}
+				else if(InterfaceIHM.class.isAssignableFrom(cc.getClass())){
+					//TODO: Code sale, peut-on faire autrement qu'un cast ???
+					this.ihm = (InterfaceIHM) cc;
+				}
+				else if(InterfaceIA.class.isAssignableFrom(cc.getClass())){
+					//TODO: Code sale, peut-on faire autrement qu'un cast ???
+					this.ia = (InterfaceIA) cc;
+				}
+				else{
+					throw new UnknownComponentTypeException();
+					}
+				
 			} catch (InstantiationException | IllegalAccessException | UnknownComponentTypeException e) {
 				System.err.println("Le CoreComponent : " + c.toString() + "n'a pas pu être lancé");
 				e.printStackTrace();
@@ -85,11 +85,10 @@ public class CoreComponentManager implements ICoreComponentManager {
 	//Cette fonction charge tous les Components précisés dans le fichier d"initialisation
 	private void getComponentsFromFile(String string) throws IOException, ClassNotFoundException {
 		for(String s : Files.readAllLines(FileSystems.getDefault().getPath(string))){
-			if(ICoreComponent.class.isAssignableFrom(Class.forName(s))){
+			
 				//ENCORE UN CAST (meme avec le if, c'est sale)
-				this.add((Class<? extends ICoreComponent>) Class.forName(s));
+				this.add((Class<?>) Class.forName(s));
 				System.out.println(s + " ajouté à la liste des Components chargés");
-			}
 		}
 	}
 
