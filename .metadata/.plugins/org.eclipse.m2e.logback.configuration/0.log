@@ -230,3 +230,7 @@ Caused by: java.io.IOException: Une connexion existante a dû être fermée par l’h
 2018-01-30 12:59:30,649 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@1a21a9d0{/,null,AVAILABLE}
 2018-01-30 12:59:30,660 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@2ffbc3dd{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
 2018-01-30 12:59:30,661 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @42959ms
+2018-01-30 13:58:17,582 [Framework stop] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@2ffbc3dd{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-01-30 13:58:17,590 [Framework stop] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@1a21a9d0{/,null,UNAVAILABLE}
+2018-01-31 19:09:34,300 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-01-31 19:13:32,980 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
