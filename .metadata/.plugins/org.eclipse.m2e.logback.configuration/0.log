@@ -234,3 +234,17 @@ Caused by: java.io.IOException: Une connexion existante a dû être fermée par l’h
 2018-01-30 13:58:17,590 [Framework stop] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@1a21a9d0{/,null,UNAVAILABLE}
 2018-01-31 19:09:34,300 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2018-01-31 19:13:32,980 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-01 13:16:05,080 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2018-02-01 13:16:12,174 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.util.log - Logging initialized @59349ms
+2018-02-01 13:16:12,297 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2018-02-01 13:16:12,425 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4c4a23e{/,null,AVAILABLE}
+2018-02-01 13:16:12,443 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@644b6bd7{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-01 13:16:12,443 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @59618ms
+2018-02-01 13:22:11,407 [Framework stop] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@644b6bd7{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-01 13:22:11,409 [Framework stop] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4c4a23e{/,null,UNAVAILABLE}
+2018-02-01 13:22:28,658 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-01 13:22:36,263 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.util.log - Logging initialized @18696ms
+2018-02-01 13:22:36,332 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2018-02-01 13:22:36,428 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@109afe0d{/,null,AVAILABLE}
+2018-02-01 13:22:36,436 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@1c0e922{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-01 13:22:36,436 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @18869ms

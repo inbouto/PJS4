@@ -70,8 +70,7 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         super(new GridBagLayout());
         
         //Create and set up the window.
-    	JFrame.setDefaultLookAndFeelDecorated(true);
-        JFrame frame = new JFrame("Le Fermier Ukrainien");
+        JFrame frame = new JFrame("L'IAPP");
         frame.setSize(300, 150);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
@@ -87,18 +86,17 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
         panelTextField.setBorder(borderTextField);
          
-        textField = new JTextField(20);
+        textField = new JTextField(82);
         textField.addActionListener(this);
  
         GridBagConstraints zoneDeSaisie = new GridBagConstraints();
         
         zoneDeSaisie.gridwidth = GridBagConstraints.REMAINDER; 
         zoneDeSaisie.fill = GridBagConstraints.HORIZONTAL;
-        add(textField, zoneDeSaisie);
         
         panelTextField.add(textField, zoneDeSaisie);
         
-        frame.add(panelTextField);
+        frame.add(panelTextField, BorderLayout.PAGE_END);
         
         
         //code permettant d'afficher le texte entré
@@ -122,7 +120,7 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
         panelTextAreaUser.add(scrollPane, zoneTexteUser);
         
-        frame.add(panelTextAreaUser);
+        frame.add(panelTextAreaUser, BorderLayout.LINE_START);
         
         
         //code permettant d'afficher le texte entré
@@ -146,7 +144,7 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
         panelTextAreaIA.add(scrollPane2, zoneTexteIA);
         
-        frame.add(panelTextAreaIA);
+        frame.add(panelTextAreaIA, BorderLayout.LINE_END);
         
         
         //Display the window.
@@ -162,6 +160,11 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         //Make sure the new text is visible, even if there
         //was a selection in the text area.
         textAreaUser.setCaretPosition(textAreaUser.getDocument().getLength());
+       
+        textAreaIA.append(text + newline);
+        //Make sure the new text is visible, even if there
+        //was a selection in the text area.
+        textAreaIA.setCaretPosition(textAreaUser.getDocument().getLength());
     }
  
     /**
