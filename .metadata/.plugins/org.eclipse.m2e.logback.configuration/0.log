@@ -280,3 +280,19 @@ Caused by: java.io.IOException: Une connexion existante a dû être fermée par l’h
 2018-02-05 12:36:50,077 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@67c0a62{/,null,AVAILABLE}
 2018-02-05 12:36:50,096 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@585d8ecf{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
 2018-02-05 12:36:50,096 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @20514ms
+2018-02-05 12:50:55,746 [Framework stop] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@585d8ecf{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-05 12:50:55,753 [Framework stop] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@67c0a62{/,null,UNAVAILABLE}
+2018-02-06 09:23:13,429 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-02-06 09:23:20,786 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.util.log - Logging initialized @34822ms
+2018-02-06 09:23:20,871 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2018-02-06 09:23:21,736 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@2b84dcb0{/,null,AVAILABLE}
+2018-02-06 09:23:21,765 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@19bee904{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-06 09:23:21,765 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @35802ms
+2018-02-06 09:38:20,644 [Framework stop] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@19bee904{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-06 09:38:20,659 [Framework stop] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@2b84dcb0{/,null,UNAVAILABLE}
+2018-02-06 09:38:44,051 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-06 09:38:49,993 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.util.log - Logging initialized @23733ms
+2018-02-06 09:38:50,077 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2018-02-06 09:38:51,172 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@674e5813{/,null,AVAILABLE}
+2018-02-06 09:38:51,193 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@2e1930e7{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-06 09:38:51,193 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @24933ms
