@@ -21,7 +21,7 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
         frame.setResizable(false);
         centerWindow(frame);
     	
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS)); 
+        frame.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         String[] patternExamples = {
                  "Nourriture",
                  "Jeux",
@@ -70,9 +70,9 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
         patternPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         resultPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
  
-        add(patternPanel);
-        add(Box.createRigidArea(new Dimension(0, 10)));
-        add(resultPanel);
+        frame.add(patternPanel);
+        frame.add(Box.createRigidArea(new Dimension(0, 10)));
+        frame.add(resultPanel);
  
         setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         

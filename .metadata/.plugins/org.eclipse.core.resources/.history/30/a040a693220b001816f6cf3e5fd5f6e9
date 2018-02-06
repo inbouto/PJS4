@@ -21,7 +21,7 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
         frame.setResizable(false);
         centerWindow(frame);
     	
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS)); 
+        frame.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         String[] patternExamples = {
                  "Nourriture",
                  "Jeux",
