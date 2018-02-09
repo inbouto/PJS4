@@ -15,13 +15,22 @@ public class IHMV1_Design extends JPanel implements ActionListener {
     public IHMV1_Design() {
         super(new GridBagLayout());      
         
+        JFrame frame = new JFrame("L'IAPP");
+        frame.setSize(300, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        centerWindow(frame);       
+
+
+        frame.add(ajouterZoneDeTexte(), BorderLayout.PAGE_END); 
+        frame.add(ajouterTexteIA(), BorderLayout.LINE_START);
+        frame.add(ajouterTexteUser(), BorderLayout.LINE_END);
         
-        this.ajouterTexteUser();
-        this.ajouterTexteIA();
-        this.ajouterZoneDeTexte();
+        frame.pack();
+        frame.setVisible(true);
     }
     
-    public void ajouterZoneDeTexte(){
+    public JPanel ajouterZoneDeTexte(){
     	//Code de la zone de saisie
         JPanel panelTextField = new JPanel();
         
@@ -41,10 +50,11 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
         panelTextField.add(textField, zoneDeSaisie);
         
-        add(panelTextField, GridBagConstraints.PAGE_END);  
+        //add(panelTextField, GridBagConstraints.PAGE_END);
+		return panelTextField;  
     }
     
-    public void ajouterTexteUser(){ 
+    public JPanel ajouterTexteUser(){ 
     	//Code permettant d'afficher le texte entré
         JPanel panelTextAreaUser = new JPanel();
         
@@ -66,10 +76,11 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
         panelTextAreaUser.add(scrollPane, zoneTexteUser);
         
-        add(panelTextAreaUser, GridBagConstraints.LINE_START);
+        //add(panelTextAreaUser, GridBagConstraints.LINE_START);
+		return panelTextAreaUser;
     }
     
-    public void ajouterTexteIA(){
+    public JPanel ajouterTexteIA(){
     	//Code permettant d'afficher le texte de l'IA
         JPanel panelTextAreaIA = new JPanel();
         
@@ -91,7 +102,8 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
         panelTextAreaIA.add(scrollPane2, zoneTexteIA);
         
-        add(panelTextAreaIA, GridBagConstraints.LINE_END);    
+        //add(panelTextAreaIA, GridBagConstraints.LINE_END);
+		return panelTextAreaIA;    
     }
  
     public void actionPerformed(ActionEvent evt) {
@@ -121,24 +133,24 @@ public class IHMV1_Design extends JPanel implements ActionListener {
      * this method should be invoked from the
      * event dispatch thread.
      */
-     private static void creationFenetre() {
-    	 //Création de la fenêtre
-         JFrame frame = new JFrame("L'IAPP");
-         frame.setSize(300, 150);
-         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         frame.setResizable(false);
-         centerWindow(frame);
-         
-         frame.getContentPane().add(new IHMV1_Design());
-         
-         frame.pack();
-         frame.setVisible(true);
-     }
+//     private static void creationFenetre() {
+//    	 //Création de la fenêtre
+//         JFrame frame = new JFrame("L'IAPP");
+//         frame.setSize(300, 150);
+//         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//         frame.setResizable(false);
+//         centerWindow(frame);
+//         
+//         frame.getContentPane().add(new IHMV1_Design());
+//         
+//         frame.pack();
+//         frame.setVisible(true);
+//     }
  
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-            	creationFenetre();
+            	new IHMV1_Design();
             }
         });
     }

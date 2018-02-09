@@ -10,20 +10,20 @@
 		<item value="https://github.com/inbouto/PJS4"/>
 	</list>
 	<list key="CommitDialog.authorValues">
+		<item value="dugauqui &lt;dugauqui@B-0-03-16.iutparis.local&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-0-04-02.iutparis.local&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-1-09-09.iutparis.local&gt;"/>
 		<item value="Cop &lt;Cop@Cop-PC.home&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-0-03-17.iutparis.local&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-0-04-03.iutparis.local&gt;"/>
-		<item value="dugauqui &lt;dugauqui@B-0-03-16.iutparis.local&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
+		<item value="dugauqui &lt;dugauqui@B-0-03-16.iutparis.local&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-0-04-02.iutparis.local&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-1-09-09.iutparis.local&gt;"/>
 		<item value="Cop &lt;Cop@Cop-PC.home&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-0-03-17.iutparis.local&gt;"/>
 		<item value="dugauqui &lt;dugauqui@B-0-04-03.iutparis.local&gt;"/>
-		<item value="dugauqui &lt;dugauqui@B-0-03-16.iutparis.local&gt;"/>
 	</list>
 	<section name="GitImportWizard">
 	</section>
@@ -41,9 +41,9 @@
 	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
 		<item value="541" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="296" key="DIALOG_HEIGHT"/>
+		<item value="403" key="DIALOG_HEIGHT"/>
 		<item value="698" key="DIALOG_X_ORIGIN"/>
-		<item value="331" key="DIALOG_Y_ORIGIN"/>
+		<item value="224" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.dialogs.CheckoutDialog.dialogBounds">
 		<item value="538" key="DIALOG_WIDTH"/>
@@ -55,7 +55,7 @@
 	<section name="GitCommitMessageComponent">
 	</section>
 	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
-		<item value="500,500" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="424,575" key="STAGING_SASH_FORM_WEIGHT"/>
 		<item value="false" key="sortItemState"/>
 		<item value="500,500" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
 	</section>
