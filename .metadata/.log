@@ -4649,3 +4649,6 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 
 !ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-09 12:39:41.200
 !MESSAGE Dbgp proxy discovering finished by StatusInfo OK: null
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-09 13:39:41.635
+!MESSAGE Dbgp proxy discovering finished by StatusInfo OK: null
