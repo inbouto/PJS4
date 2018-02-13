@@ -22,15 +22,16 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         centerWindow(frame);       
 
 
-        frame.add(ajouterZoneDeTexte(), BorderLayout.PAGE_END); 
-        frame.add(ajouterTexteIA(), BorderLayout.LINE_START);
-        frame.add(ajouterTexteUser(), BorderLayout.LINE_END);
+        frame.add(creerZoneDeTexte(), BorderLayout.PAGE_END); 
+        frame.add(creerTexteUser(), BorderLayout.LINE_START);
+        frame.add(creerTexteIA(), BorderLayout.LINE_END);
+        
         
         frame.pack();
         frame.setVisible(true);
     }
     
-    public JPanel ajouterZoneDeTexte(){
+    public JPanel creerZoneDeTexte(){
     	//Code de la zone de saisie
         JPanel panelTextField = new JPanel();
         
@@ -45,16 +46,13 @@ public class IHMV1_Design extends JPanel implements ActionListener {
  
         GridBagConstraints zoneDeSaisie = new GridBagConstraints();
         
-        zoneDeSaisie.gridwidth = GridBagConstraints.REMAINDER;
-        zoneDeSaisie.fill = GridBagConstraints.HORIZONTAL;
-        
         panelTextField.add(textField, zoneDeSaisie);
         
         //add(panelTextField, GridBagConstraints.PAGE_END);
 		return panelTextField;  
     }
     
-    public JPanel ajouterTexteUser(){ 
+    public JPanel creerTexteUser(){ 
     	//Code permettant d'afficher le texte entré
         JPanel panelTextAreaUser = new JPanel();
         
@@ -70,17 +68,13 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
         GridBagConstraints zoneTexteUser = new GridBagConstraints();
         
-        zoneTexteUser.fill = GridBagConstraints.WEST;
-        zoneTexteUser.weightx = 1.0;
-        zoneTexteUser.weighty = 1.0;
-        
         panelTextAreaUser.add(scrollPane, zoneTexteUser);
         
         //add(panelTextAreaUser, GridBagConstraints.LINE_START);
 		return panelTextAreaUser;
     }
     
-    public JPanel ajouterTexteIA(){
+    public JPanel creerTexteIA(){
     	//Code permettant d'afficher le texte de l'IA
         JPanel panelTextAreaIA = new JPanel();
         
@@ -95,10 +89,6 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         JScrollPane scrollPane2 = new JScrollPane(textAreaIA);
 
         GridBagConstraints zoneTexteIA = new GridBagConstraints();
-        
-        zoneTexteIA.fill = GridBagConstraints.EAST;
-        zoneTexteIA.weightx = 1.0;
-        zoneTexteIA.weighty = 1.0;
         
         panelTextAreaIA.add(scrollPane2, zoneTexteIA);
         

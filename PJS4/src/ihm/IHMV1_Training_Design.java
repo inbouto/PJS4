@@ -5,14 +5,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.util.*;
- 
-/* ComboBoxDemo2.java requires no other files. */
+
+
 public class IHMV1_Training_Design extends JPanel implements ActionListener {
-    static JFrame frame;
     JLabel result;
-    String currentPattern;
+    String currentClasse;
  
     public IHMV1_Training_Design() {
+    	super(new GridBagLayout());
     	
     	//Création de la fenêtre
     	JFrame frame = new JFrame("Training");
@@ -21,8 +21,69 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
         frame.setResizable(false);
         centerWindow(frame);
     	
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS)); 
-        String[] patternExamples = {
+        //frame.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS)); 
+        String[] classes = {
+                 "Nourriture",
+                 "Jeux",
+                 "Animaux",
+                 "Films",
+                 "Sports",
+                 "Etudes",
+                 "Travail",
+                 "Bizarre",
+                 "Monuments"
+        };
+ 
+        currentClasse = classes[0];
+ 
+        //Set up the UI for selecting a pattern.
+        JLabel label1 = new JLabel("Sélectionnez la classe correspondante");
+        JLabel label2 = new JLabel("ou ajoutez en une à la liste");
+ 
+        JComboBox listeClasses = new JComboBox(classes);
+        listeClasses.setEditable(true);
+        listeClasses.addActionListener(this);
+ 
+//        //Create the UI for displaying result.
+//        JLabel resultLabel = new JLabel("Current Date/Time", JLabel.LEADING); //== LEFT
+//        result = new JLabel(" ");
+//        result.setForeground(Color.black);
+//        result.setBorder(BorderFactory.createCompoundBorder(
+//             BorderFactory.createLineBorder(Color.black),
+//             BorderFactory.createEmptyBorder(5,5,5,5)
+//        ));
+// 
+        //Lay out everything.
+        JPanel patternPanel = new JPanel();
+        patternPanel.setLayout(new BoxLayout(patternPanel, BoxLayout.PAGE_AXIS));
+        patternPanel.add(label1);
+        patternPanel.add(label2);
+        listeClasses.setAlignmentX(Component.LEFT_ALIGNMENT);
+        
+        listeClasses.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        
+        patternPanel.add(listeClasses);
+ 
+//        JPanel resultPanel = new JPanel(new GridLayout(0, 1));
+//        resultPanel.add(resultLabel);
+//        resultPanel.add(result);
+ 
+        patternPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+//        resultPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        
+        patternPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+ 
+        frame.add(patternPanel, BorderLayout.PAGE_START);
+//        frame.add(Box.createRigidArea(new Dimension(0, 10)));
+//        frame.add(resultPanel);
+         
+        frame.pack();
+        frame.setVisible(true);
+    }
+    
+    public void creerComboBoxClasses(){
+    	setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS)); 
+        String[] classes = {
                  "Nourriture",
                  "Jeux",
                  "Animaux",
@@ -32,58 +93,23 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
                  "Travail",
                  "Bizarre",
                  "Monument"
-                 };
+        };
  
-        currentPattern = patternExamples[0];
+        currentClasse = classes[0];
  
         //Set up the UI for selecting a pattern.
-        JLabel patternLabel1 = new JLabel("Enter the pattern string or");
-        JLabel patternLabel2 = new JLabel("select one from the list:");
+        JLabel label1 = new JLabel("Sélectionnez la classe correspondante");
+        JLabel label2 = new JLabel("ou ajoutez en une à la liste");
  
-        JComboBox patternList = new JComboBox(patternExamples);
-        patternList.setEditable(true);
-        patternList.addActionListener(this);
- 
-        //Create the UI for displaying result.
-        JLabel resultLabel = new JLabel("Current Date/Time",
-                                        JLabel.LEADING); //== LEFT
-        result = new JLabel(" ");
-        result.setForeground(Color.black);
-        result.setBorder(BorderFactory.createCompoundBorder(
-             BorderFactory.createLineBorder(Color.black),
-             BorderFactory.createEmptyBorder(5,5,5,5)
-        ));
- 
-        //Lay out everything.
-        JPanel patternPanel = new JPanel();
-        patternPanel.setLayout(new BoxLayout(patternPanel,
-                               BoxLayout.PAGE_AXIS));
-        patternPanel.add(patternLabel1);
-        patternPanel.add(patternLabel2);
-        patternList.setAlignmentX(Component.LEFT_ALIGNMENT);
-        patternPanel.add(patternList);
- 
-        JPanel resultPanel = new JPanel(new GridLayout(0, 1));
-        resultPanel.add(resultLabel);
-        resultPanel.add(result);
- 
-        patternPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        resultPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
- 
-        add(patternPanel);
-        add(Box.createRigidArea(new Dimension(0, 10)));
-        add(resultPanel);
- 
-        setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        
-        frame.pack();
-        frame.setVisible(true);
-    } //constructor
+        JComboBox listeClasses = new JComboBox(classes);
+        listeClasses.setEditable(true);
+        listeClasses.addActionListener(this);
+    }
  
     public void actionPerformed(ActionEvent e) {
         JComboBox cb = (JComboBox)e.getSource();
         String newSelection = (String)cb.getSelectedItem();
-        currentPattern = newSelection;
+        currentClasse = newSelection;
     }
     
     public static void centerWindow(Window frame) {
