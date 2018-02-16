@@ -16,22 +16,12 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
     	
     	//Création de la fenêtre
     	JFrame frame = new JFrame("Training");
+        frame.setSize(100, 50);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         centerWindow(frame);
-        
-        JLabel labelTitre = new JLabel("ENTRAINEMENT DE L'IA");
-        labelTitre.setFont(new Font("Dialog", Font.BOLD, 25));
-        
-        JLabel labelPhrase = new JLabel("Voici le texte à classifier :");
-        
-        JTextArea textePhrase = new JTextArea(12, 40);
-        textePhrase.setEditable(false);
-        textePhrase.setLineWrap(true);
-        JScrollPane scrollPane = new JScrollPane(textePhrase);
-        
-        JLabel labelClasse = new JLabel("Sélectionnez la classe correspondante");
-        
+    	
+        //frame.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS)); 
         String[] classes = {
                  "Nourriture",
                  "Jeux",
@@ -46,41 +36,47 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
  
         currentClasse = classes[0];
  
-        JComboBox listeClasses = new JComboBox(classes);
-        listeClasses.setEditable(false);
-        listeClasses.addActionListener(this);
-        
+        //Set up the UI for selecting a pattern.
+        JLabel label1 = new JLabel("Sélectionnez la classe correspondante");
+        JLabel label2 = new JLabel("ou ajoutez en une à la liste");
  
-        //affichage
+        JComboBox listeClasses = new JComboBox(classes);
+        listeClasses.setEditable(true);
+        listeClasses.addActionListener(this);
+ 
+//        //Create the UI for displaying result.
+//        JLabel resultLabel = new JLabel("Current Date/Time", JLabel.LEADING); //== LEFT
+//        result = new JLabel(" ");
+//        result.setForeground(Color.black);
+//        result.setBorder(BorderFactory.createCompoundBorder(
+//             BorderFactory.createLineBorder(Color.black),
+//             BorderFactory.createEmptyBorder(5,5,5,5)
+//        ));
+// 
+        //Lay out everything.
         JPanel patternPanel = new JPanel();
-        
         patternPanel.setLayout(new BoxLayout(patternPanel, BoxLayout.PAGE_AXIS));
+        patternPanel.add(label1);
+        patternPanel.add(label2);
+        listeClasses.setAlignmentX(Component.LEFT_ALIGNMENT);
         
-        patternPanel.add(labelTitre);
-        labelTitre.setAlignmentX(Component.CENTER_ALIGNMENT);
-        labelTitre.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        
-        patternPanel.add(labelPhrase);
-        labelPhrase.setAlignmentX(Component.CENTER_ALIGNMENT);
-        labelPhrase.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        
-        patternPanel.add(scrollPane, textePhrase);
-        textePhrase.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        
-        patternPanel.add(labelClasse);
-        labelClasse.setAlignmentX(Component.CENTER_ALIGNMENT);
-        labelClasse.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));        
+        listeClasses.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         
         patternPanel.add(listeClasses);
-        listeClasses.setAlignmentX(Component.CENTER_ALIGNMENT);        
-        listeClasses.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
  
-        patternPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        JPanel resultPanel = new JPanel(new GridLayout(0, 1));
+//        resultPanel.add(resultLabel);
+//        resultPanel.add(result);
+ 
+        patternPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+//        resultPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         
-        patternPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        patternPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
  
         frame.add(patternPanel, BorderLayout.PAGE_START);
-        
+//        frame.add(Box.createRigidArea(new Dimension(0, 10)));
+//        frame.add(resultPanel);
+         
         frame.pack();
         frame.setVisible(true);
     }
@@ -106,12 +102,14 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
         JLabel label2 = new JLabel("ou ajoutez en une à la liste");
  
         JComboBox listeClasses = new JComboBox(classes);
-        listeClasses.setEditable(false);
+        listeClasses.setEditable(true);
         listeClasses.addActionListener(this);
     }
  
     public void actionPerformed(ActionEvent e) {
-    	// /!\ A REMPLIR /!\
+        JComboBox cb = (JComboBox)e.getSource();
+        String newSelection = (String)cb.getSelectedItem();
+        currentClasse = newSelection;
     }
     
     public static void centerWindow(Window frame) {

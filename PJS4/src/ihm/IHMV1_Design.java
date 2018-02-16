@@ -7,9 +7,9 @@ import javax.swing.border.TitledBorder;
  
 public class IHMV1_Design extends JPanel implements ActionListener {
 	
-	private JTextField textField;
-    private JTextArea textAreaUser;
-    private JTextArea textAreaIA;
+	private JTextField zoneDeSaisie;
+    private JTextArea texteUser;
+    private JTextArea texteIA;
     private final static String newline = "\n";
  
     public IHMV1_Design() {
@@ -21,7 +21,7 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         frame.setResizable(false);
         centerWindow(frame);       
 
-
+        frame.add(creerTitre(), BorderLayout.PAGE_START);
         frame.add(creerZoneDeTexte(), BorderLayout.PAGE_END); 
         frame.add(creerTexteUser(), BorderLayout.LINE_START);
         frame.add(creerTexteIA(), BorderLayout.LINE_END);
@@ -31,84 +31,92 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         frame.setVisible(true);
     }
     
+    public JPanel creerTitre() {
+    	//Code du titre
+        JPanel panelTitre = new JPanel();
+    	
+    	JLabel Titre = new JLabel("INTELLIGENCE ARTIFICIELLE SUPPORT");
+        Titre.setFont(new Font("Dialog", Font.BOLD, 25));
+        Titre.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        Titre.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        GridBagConstraints TitreGBC = new GridBagConstraints();
+        
+        panelTitre.add(Titre, TitreGBC);
+        
+		return panelTitre;    	
+    }
+    
     public JPanel creerZoneDeTexte(){
     	//Code de la zone de saisie
-        JPanel panelTextField = new JPanel();
+        JPanel panelZoneDeSaisie = new JPanel();
         
-        TitledBorder borderTextField = new TitledBorder("Tapez ici votre texte");
-        borderTextField.setTitleJustification(TitledBorder.CENTER);
-        borderTextField.setTitlePosition(TitledBorder.TOP);
-        
-        panelTextField.setBorder(borderTextField);
+        TitledBorder borderZoneDeSaisie = new TitledBorder("Tapez ici votre texte");
+        borderZoneDeSaisie.setTitleJustification(TitledBorder.CENTER);
+        borderZoneDeSaisie.setTitlePosition(TitledBorder.TOP);        
+        panelZoneDeSaisie.setBorder(borderZoneDeSaisie);
          
-        textField = new JTextField(82);
-        textField.addActionListener(this);
+        zoneDeSaisie = new JTextField(82);
+        zoneDeSaisie.addActionListener(this);
  
-        GridBagConstraints zoneDeSaisie = new GridBagConstraints();
+        GridBagConstraints zoneDeSaisieGBC = new GridBagConstraints();
         
-        panelTextField.add(textField, zoneDeSaisie);
+        panelZoneDeSaisie.add(zoneDeSaisie, zoneDeSaisieGBC);
         
-        //add(panelTextField, GridBagConstraints.PAGE_END);
-		return panelTextField;  
+		return panelZoneDeSaisie;  
     }
     
     public JPanel creerTexteUser(){ 
     	//Code permettant d'afficher le texte entré
-        JPanel panelTextAreaUser = new JPanel();
+        JPanel panelTexteUser = new JPanel();
         
-        TitledBorder borderTextAreaUser = new TitledBorder("Votre texte");
-        borderTextAreaUser.setTitleJustification(TitledBorder.CENTER);
-        borderTextAreaUser.setTitlePosition(TitledBorder.TOP);
+        TitledBorder borderTexteUser = new TitledBorder("Votre texte");
+        borderTexteUser.setTitleJustification(TitledBorder.CENTER);
+        borderTexteUser.setTitlePosition(TitledBorder.TOP);
         
-        panelTextAreaUser.setBorder(borderTextAreaUser);
+        panelTexteUser.setBorder(borderTexteUser);
         
-        textAreaUser = new JTextArea(15, 40);
-        textAreaUser.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(textAreaUser);
+        texteUser = new JTextArea(15, 40);
+        texteUser.setEditable(false);
+        texteUser.setLineWrap(true);
+        JScrollPane texteUserSP = new JScrollPane(texteUser);
+        GridBagConstraints texteUserGBC = new GridBagConstraints();
         
-        GridBagConstraints zoneTexteUser = new GridBagConstraints();
+        panelTexteUser.add(texteUserSP, texteUserGBC);
         
-        panelTextAreaUser.add(scrollPane, zoneTexteUser);
-        
-        //add(panelTextAreaUser, GridBagConstraints.LINE_START);
-		return panelTextAreaUser;
+		return panelTexteUser;
     }
     
     public JPanel creerTexteIA(){
     	//Code permettant d'afficher le texte de l'IA
-        JPanel panelTextAreaIA = new JPanel();
+        JPanel panelTexteIA = new JPanel();
         
-        TitledBorder borderTextAreaIA = new TitledBorder("Réponse de l'IA");
-        borderTextAreaIA.setTitleJustification(TitledBorder.CENTER);
-        borderTextAreaIA.setTitlePosition(TitledBorder.TOP);
+        TitledBorder borderTexteIA = new TitledBorder("Réponse de l'IA");
+        borderTexteIA.setTitleJustification(TitledBorder.CENTER);
+        borderTexteIA.setTitlePosition(TitledBorder.TOP);
         
-        panelTextAreaIA.setBorder(borderTextAreaIA);
+        panelTexteIA.setBorder(borderTexteIA);
         
-        textAreaIA = new JTextArea(15, 40);
-        textAreaIA.setEditable(false);
-        JScrollPane scrollPane2 = new JScrollPane(textAreaIA);
+        texteIA = new JTextArea(15, 40);
+        texteIA.setEditable(false);
+        texteIA.setLineWrap(true);
+        JScrollPane texteIASP = new JScrollPane(texteIA);
 
-        GridBagConstraints zoneTexteIA = new GridBagConstraints();
+        GridBagConstraints texteIAGBC = new GridBagConstraints();
         
-        panelTextAreaIA.add(scrollPane2, zoneTexteIA);
+        panelTexteIA.add(texteIASP, texteIAGBC);
         
-        //add(panelTextAreaIA, GridBagConstraints.LINE_END);
-		return panelTextAreaIA;    
+		return panelTexteIA;    
     }
  
     public void actionPerformed(ActionEvent evt) {
-        String text = textField.getText();
-        textAreaUser.append(text + newline);
-        textField.selectAll();
- 
-        //Make sure the new text is visible, even if there
-        //was a selection in the text area.
-        textAreaUser.setCaretPosition(textAreaUser.getDocument().getLength());
+        String text = zoneDeSaisie.getText();
+        texteUser.append(text + newline);
+        zoneDeSaisie.selectAll();        
+        texteUser.setCaretPosition(texteUser.getDocument().getLength());
        
-        textAreaIA.append(text + newline);
-        //Make sure the new text is visible, even if there
-        //was a selection in the text area.
-        textAreaIA.setCaretPosition(textAreaUser.getDocument().getLength());
+        texteIA.append(text + newline);
+        texteIA.setCaretPosition(texteUser.getDocument().getLength());
     }
     
     public static void centerWindow(Window frame) {
@@ -117,25 +125,6 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 3.5);
         frame.setLocation(x, y);
     }
- 
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event dispatch thread.
-     */
-//     private static void creationFenetre() {
-//    	 //Création de la fenêtre
-//         JFrame frame = new JFrame("L'IAPP");
-//         frame.setSize(300, 150);
-//         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//         frame.setResizable(false);
-//         centerWindow(frame);
-//         
-//         frame.getContentPane().add(new IHMV1_Design());
-//         
-//         frame.pack();
-//         frame.setVisible(true);
-//     }
  
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
