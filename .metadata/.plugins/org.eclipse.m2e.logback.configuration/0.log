@@ -344,3 +344,14 @@ Caused by: java.io.IOException: Une connexion existante a dû être fermée par l’h
 2018-02-16 08:28:24,677 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@1e86be05{/,null,AVAILABLE}
 2018-02-16 08:28:24,735 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@6d8be3db{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
 2018-02-16 08:28:24,736 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @59078ms
+2018-02-16 12:08:26,117 [Framework stop] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@6d8be3db{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-16 12:08:26,211 [Framework stop] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@1e86be05{/,null,UNAVAILABLE}
+2018-02-16 12:08:49,791 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-16 12:08:51,795 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.util.log - Logging initialized @26483ms
+2018-02-16 12:08:52,045 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2018-02-16 12:08:53,855 [Safe X3 Studio HTTP server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@23b95b22{/,null,AVAILABLE}
+2018-02-16 12:08:53,894 [Safe X3 Studio HTTP server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@a9ee037{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-16 12:08:53,895 [Safe X3 Studio HTTP server] INFO  org.eclipse.jetty.server.Server - Started @28583ms
+2018-02-16 12:09:40,961 [Framework stop] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@a9ee037{HTTP/1.1,[http/1.1]}{0.0.0.0:5493}
+2018-02-16 12:09:40,965 [Framework stop] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@23b95b22{/,null,UNAVAILABLE}
+2018-02-18 12:33:58,132 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

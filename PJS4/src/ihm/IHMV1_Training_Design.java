@@ -50,6 +50,19 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
         listeClasses.setEditable(false);
         listeClasses.addActionListener(this);
         
+        JPanel panelConfirmation = new JPanel();
+        panelConfirmation.setLayout(new FlowLayout());
+        
+        JButton boutonSkip = new JButton("Skip");
+		panelConfirmation.add(boutonSkip);
+		
+
+		panelConfirmation.add(Box.createRigidArea(new Dimension(100,0)));
+		
+        
+		JButton boutonOk = new JButton("Ok");
+		panelConfirmation.add(boutonOk);
+        
  
         //affichage
         JPanel patternPanel = new JPanel();
@@ -74,7 +87,11 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
         patternPanel.add(listeClasses);
         listeClasses.setAlignmentX(Component.CENTER_ALIGNMENT);        
         listeClasses.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
- 
+        
+        patternPanel.add(panelConfirmation);
+        panelConfirmation.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panelConfirmation.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        
         patternPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         patternPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));

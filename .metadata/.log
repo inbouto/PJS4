@@ -5283,3 +5283,130 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 11:28:22.961
 !MESSAGE Dbgp proxy discovering finished by StatusInfo OK: null
+
+!ENTRY com.sage.x3.xdt.http.server 1 0 2018-02-16 12:08:26.070
+!MESSAGE X3 http server stopped
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 12:08:29.042
+!MESSAGE Dbgp proxy discovering finished by Status CANCEL: unknown code=1  null
+!SESSION 2018-02-16 12:08:25.430 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2018-02-16 12:08:37.839
+!MESSAGE Unable to retrieve the bundle from the URI: bundleclass://org.eclipse.recommenders.news.rcp/org.eclipse.recommenders.internal.news.rcp.poll.PollNewsFeedsHandler
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2018-02-16 12:08:38.682
+!MESSAGE Unable to retrieve the bundle from the URI: bundleclass://org.eclipse.recommenders.news.rcp/org.eclipse.recommenders.internal.news.rcp.read.ReadNewsItemsHandler
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2018-02-16 12:08:48.791
+!MESSAGE Unable to retrieve the bundle from the URI: bundleclass://org.eclipse.recommenders.news.rcp/org.eclipse.recommenders.internal.news.rcp.toolbar.NewsToolControl
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-16 12:08:50.088
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'z:\'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 12:08:50.213
+!MESSAGE SAFE X3 bundle version '2.0.4.rev019-20170123-1429' on Eclipse '4.6.2.M20161124-1400'
+
+!ENTRY com.sage.x3.xdt.dltk.launching 1 1 2018-02-16 12:08:50.603
+!MESSAGE Dbgp service running at port 10000
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 12:08:50.978
+!MESSAGE Dbgp proxy discovering finished by StatusInfo OK: null
+
+!ENTRY com.sage.x3.xdt.http.server 1 0 2018-02-16 12:08:51.752
+!MESSAGE Starting X3 http server on port 5493
+
+!ENTRY com.sage.x3.xdt.http.server 1 0 2018-02-16 12:08:54.203
+!MESSAGE X3 http server started on port 5493
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 12:08:54.837
+!MESSAGE Update check frequency is set to 'day', last check was on 2018-02-16T07:28:43Z
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 12:09:08.311
+!MESSAGE Check for updates in: http://pluginx3.sage.fr/safex3/studio/updates/
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 12:09:09.043
+!MESSAGE Auto update info: No updates were found in <A>available software sites</A>.
+
+!ENTRY com.sage.x3.xdt.http.server 1 0 2018-02-16 12:09:40.957
+!MESSAGE X3 http server stopped
+
+!ENTRY com.sage.x3.xdt.common.core 1 0 2018-02-16 12:09:42.018
+!MESSAGE Dbgp proxy discovering finished by Status CANCEL: unknown code=1  null
+!SESSION 2018-02-18 12:32:39.961 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-18 12:34:01.357
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Cop'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:01.803
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.common.ui.LockedFilesView' id and the 'Fichiers verrouillés' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.042
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.common.ui.FilePropertiesView' id and the 'Propriétés traitement' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.080
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.debug.ui.memoryView' id and the 'Mémoire' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.148
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.debug.ui.masksView' id and the 'Ecrans' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.169
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.debug.ui.tablesView' id and the 'Tables' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.186
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.debug.ui.classesView' id and the 'Classes de variables' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.203
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.debug.ui.processesView' id and the 'Programmes' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.218
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.debug.ui.seqFilesView' id and the 'Fichiers séquentiels' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.304
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.debug.ui.traceView' id and the 'Trace' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.444
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.ui.explorer' id and the 'Explorateur X3' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.574
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.ui.documentationView' id and the 'Documentation X3' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.727
+!MESSAGE Removing part descriptor with the 'com.sage.x3.xdt.dltk.ui.linkedFilesView' id and the 'Fichiers liés' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.865
+!MESSAGE Removing part descriptor with the 'org.eclipse.dltk.debug.ui.dbgpLogView' id and the 'Script Debug Log' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:02.969
+!MESSAGE Removing part descriptor with the 'org.eclipse.dltk.debug.ui.ScriptDisplayView' id and the 'Interactive Console' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:03.044
+!MESSAGE Removing part descriptor with the 'org.eclipse.dltk.testing.ResultView' id and the 'Script Unit Test' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:03.144
+!MESSAGE Removing part descriptor with the 'org.eclipse.dltk.ui.ScriptExplorer' id and the 'Script Explorer' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:03.183
+!MESSAGE Removing part descriptor with the 'org.eclipse.dltk.callhierarchy.view' id and the 'Call Hierarchy' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2018-02-18 12:34:03.194
+!MESSAGE Removing part descriptor with the 'org.eclipse.dltk.ui.TypeHierarchy' id and the 'Type Hierarchy' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
