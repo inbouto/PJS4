@@ -2,34 +2,92 @@ package ihm;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+
+import core.InterfaceIHM;
  
-public class IHMV1_Design extends JPanel implements ActionListener {
+public class IHMV1_Design extends JFrame implements ActionListener, InterfaceIHM {
 	
 	private JTextField zoneDeSaisie;
     private JTextArea texteUser;
     private JTextArea texteIA;
     private final static String newline = "\n";
+    private String reponse = null;
+    
+	private JButton boutonRetourMenu;
+	private JButton boutonQuitter;
  
-    public IHMV1_Design() {
-        super(new GridBagLayout());      
-        
-        JFrame frame = new JFrame("L'IAPP");
-        frame.setSize(300, 150);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        centerWindow(frame);       
+    public IHMV1_Design() throws IOException {
+    	this.setTitle("IA Support");
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setUndecorated(true);
+        this.setResizable(false);
+        centerWindow(this);       
 
-        frame.add(creerTitre(), BorderLayout.PAGE_START);
-        frame.add(creerZoneDeTexte(), BorderLayout.PAGE_END); 
-        frame.add(creerTexteUser(), BorderLayout.LINE_START);
-        frame.add(creerTexteIA(), BorderLayout.LINE_END);
+        JPanel panelFrame = new JPanel();
         
+        panelFrame.add(creerPanelGeneral());
+        panelFrame.setBorder(new LineBorder(Color.black));
         
-        frame.pack();
-        frame.setVisible(true);
+        this.add(panelFrame);
+        
+        this.pack();
+        this.setVisible(true);
     }
+    
+    public JPanel creerPanelGeneral() throws IOException {
+    	JPanel panelGeneral = new JPanel();
+    	
+    	panelGeneral.setLayout(new BoxLayout(panelGeneral, BoxLayout.PAGE_AXIS));
+    	
+    	panelGeneral.add(creerGestionFenetre());
+    	panelGeneral.add(creerTitre());
+    	panelGeneral.add(creerTexte());
+    	panelGeneral.add(creerZoneDeTexte());
+    	
+    	panelGeneral.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        panelGeneral.setBorder(BorderFactory.createEmptyBorder(10,0,10,0));
+    	
+		return panelGeneral;    	
+    }
+    
+    private JPanel creerGestionFenetre() throws IOException {
+    	//Code des boutons retour menu et quitter
+    	JPanel panelGestionFenetre = new JPanel();
+    	
+    	Image imageRetour = ImageIO.read(new File("Ressources/Retour.png"));
+    	Image iconeRetour = imageRetour.getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+    	boutonRetourMenu = new JButton(new ImageIcon(iconeRetour));
+    	boutonRetourMenu.setBackground(Color.white);
+    	boutonRetourMenu.setPreferredSize(new Dimension(35, 35));
+    	boutonRetourMenu.setFocusable(false);
+    	boutonRetourMenu.addActionListener(this);
+        
+        panelGestionFenetre.add(boutonRetourMenu);
+		
+        panelGestionFenetre.add(Box.createRigidArea(new Dimension(600,0)));  
+		
+        Image imageQuitter = ImageIO.read(new File("Ressources/Quitter.png"));
+    	Image iconeQuitter = imageQuitter.getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+    	boutonQuitter = new JButton(new ImageIcon(iconeQuitter));
+    	boutonQuitter.setBackground(Color.red);
+    	boutonQuitter.setPreferredSize(new Dimension(35, 35));
+		boutonQuitter.setFocusable(false);
+		boutonQuitter.addActionListener(this);
+		
+		panelGestionFenetre.add(boutonQuitter);		
+
+		panelGestionFenetre.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        return panelGestionFenetre;
+	}
     
     public JPanel creerTitre() {
     	//Code du titre
@@ -37,33 +95,25 @@ public class IHMV1_Design extends JPanel implements ActionListener {
     	
     	JLabel Titre = new JLabel("INTELLIGENCE ARTIFICIELLE SUPPORT");
         Titre.setFont(new Font("Dialog", Font.BOLD, 25));
-        Titre.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         Titre.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         GridBagConstraints TitreGBC = new GridBagConstraints();
+        
+        panelTitre.setBorder(BorderFactory.createEmptyBorder(0,10,20,10));
         
         panelTitre.add(Titre, TitreGBC);
         
 		return panelTitre;    	
     }
     
-    public JPanel creerZoneDeTexte(){
-    	//Code de la zone de saisie
-        JPanel panelZoneDeSaisie = new JPanel();
+    public JPanel creerTexte(){ 
+    	//Code permettant de contenir les différentes zones de texte
+        JPanel panelTexte = new JPanel();
         
-        TitledBorder borderZoneDeSaisie = new TitledBorder("Tapez ici votre texte");
-        borderZoneDeSaisie.setTitleJustification(TitledBorder.CENTER);
-        borderZoneDeSaisie.setTitlePosition(TitledBorder.TOP);        
-        panelZoneDeSaisie.setBorder(borderZoneDeSaisie);
-         
-        zoneDeSaisie = new JTextField(82);
-        zoneDeSaisie.addActionListener(this);
- 
-        GridBagConstraints zoneDeSaisieGBC = new GridBagConstraints();
+        panelTexte.add(creerTexteUser());
+        panelTexte.add(creerTexteIA());
         
-        panelZoneDeSaisie.add(zoneDeSaisie, zoneDeSaisieGBC);
-        
-		return panelZoneDeSaisie;  
+		return panelTexte;
     }
     
     public JPanel creerTexteUser(){ 
@@ -108,28 +158,74 @@ public class IHMV1_Design extends JPanel implements ActionListener {
         
 		return panelTexteIA;    
     }
- 
-    public void actionPerformed(ActionEvent evt) {
-        String text = zoneDeSaisie.getText();
-        texteUser.append(text + newline);
-        zoneDeSaisie.selectAll();        
-        texteUser.setCaretPosition(texteUser.getDocument().getLength());
-       
-        texteIA.append(text + newline);
-        texteIA.setCaretPosition(texteUser.getDocument().getLength());
-    }
     
-    public static void centerWindow(Window frame) {
+    public JPanel creerZoneDeTexte(){
+    	//Code de la zone de saisie
+        JPanel panelZoneDeSaisie = new JPanel();
+        
+        TitledBorder borderZoneDeSaisie = new TitledBorder("Tapez ici votre texte");
+        borderZoneDeSaisie.setTitleJustification(TitledBorder.CENTER);
+        borderZoneDeSaisie.setTitlePosition(TitledBorder.TOP);   
+        panelZoneDeSaisie.setBorder(borderZoneDeSaisie);
+         
+        zoneDeSaisie = new JTextField(82);
+        zoneDeSaisie.addActionListener(this);
+ 
+        GridBagConstraints zoneDeSaisieGBC = new GridBagConstraints();
+        
+        panelZoneDeSaisie.add(zoneDeSaisie, zoneDeSaisieGBC);
+        
+		return panelZoneDeSaisie;  
+    }    
+    
+    public void centerWindow(Window frame) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 3.5);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 3.5);
         frame.setLocation(x, y);
     }
  
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    	if (e.getSource() == boutonRetourMenu) {
+    		this.dispose();
+			try {
+				new IHMV1_Menu_Design();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+    	}
+		else if (e.getSource() == boutonQuitter) {
+			this.dispose();
+		}
+		else {
+			texteUser.append(saisie() + newline);
+	        zoneDeSaisie.selectAll();        
+	        texteUser.setCaretPosition(texteUser.getDocument().getLength());
+	       
+	        texteIA.append(reponse + newline);
+	        texteIA.setCaretPosition(texteUser.getDocument().getLength());
+		}
+    }
+    
+    @Override
+	public String saisie() {		
+		return zoneDeSaisie.getText();
+	}
+
+	@Override
+	public void affichage(String param) {
+		this.reponse = param;
+	}
+ 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-            	new IHMV1_Design();
+            	try {
+					new IHMV1_Design();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
             }
         });
     }

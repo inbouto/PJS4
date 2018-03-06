@@ -2,35 +2,135 @@ package ihm;
 	 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.*;
-import java.util.*;
 
 
-public class IHMV1_Training_Design extends JPanel implements ActionListener {
+public class IHMV1_Training_Design extends JFrame implements ActionListener {
     JLabel result;
     String currentClasse;
+	private JButton boutonRetourMenu;
+	private JButton boutonQuitter;
  
-    public IHMV1_Training_Design() {
-    	super(new GridBagLayout());
+    public IHMV1_Training_Design() throws IOException {
+    	this.setTitle("Entraînement IA");
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setUndecorated(true);
+    	this.setResizable(false);
+        centerWindow(this);
+        
+        JPanel panelFrame = new JPanel();
+ 
+        panelFrame.add(creerPanelGeneral());
+        panelFrame.setBorder(new LineBorder(Color.black));
+        
+        this.add(panelFrame);
+        
+        this.pack();
+        this.setVisible(true);
+    }
+    
+    public JPanel creerPanelGeneral() throws IOException {
+    	JPanel panelGeneral = new JPanel();
     	
-    	//Création de la fenêtre
-    	JFrame frame = new JFrame("Training");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        centerWindow(frame);
+    	panelGeneral.setLayout(new BoxLayout(panelGeneral, BoxLayout.PAGE_AXIS));
+    	
+    	panelGeneral.add(creerGestionFenetre());
+    	panelGeneral.add(creerTitre());
+    	panelGeneral.add(creerTexteAClassifier());
+    	panelGeneral.add(creerClasses());
+    	panelGeneral.add(creerConfirmation());
+    	
+    	panelGeneral.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        panelGeneral.setBorder(BorderFactory.createEmptyBorder(10,20,20,20));
+    	
+		return panelGeneral;    	
+    }
+    
+    private JPanel creerGestionFenetre() throws IOException {
+    	//Code des boutons retour menu et quitter
+    	JPanel panelGestionFenetre = new JPanel();
+    	
+    	Image imageRetour = ImageIO.read(new File("Ressources/Retour.png"));
+    	Image iconeRetour = imageRetour.getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+    	boutonRetourMenu = new JButton(new ImageIcon(iconeRetour));
+    	boutonRetourMenu.setBackground(Color.white);
+    	boutonRetourMenu.setPreferredSize(new Dimension(35, 35));
+    	boutonRetourMenu.setFocusable(false);
+    	boutonRetourMenu.addActionListener(this);
+        
+        panelGestionFenetre.add(boutonRetourMenu);
+		
+        panelGestionFenetre.add(Box.createRigidArea(new Dimension(250,0)));  
+		
+        Image imageQuitter = ImageIO.read(new File("Ressources/Quitter.png"));
+    	Image iconeQuitter = imageQuitter.getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+    	boutonQuitter = new JButton(new ImageIcon(iconeQuitter));
+    	boutonQuitter.setBackground(Color.red);
+    	boutonQuitter.setPreferredSize(new Dimension(35, 35));
+		boutonQuitter.setFocusable(false);
+		boutonQuitter.addActionListener(this);
+		
+		panelGestionFenetre.add(boutonQuitter);		
+
+		panelGestionFenetre.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        return panelGestionFenetre;
+	}
+
+	public JPanel creerTitre() {
+    	//Code du titre
+    	JPanel panelTitre = new JPanel();
         
         JLabel labelTitre = new JLabel("ENTRAINEMENT DE L'IA");
         labelTitre.setFont(new Font("Dialog", Font.BOLD, 25));
+        labelTitre.setAlignmentX(Component.CENTER_ALIGNMENT);
+        labelTitre.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         
-        JLabel labelPhrase = new JLabel("Voici le texte à classifier :");
+        panelTitre.add(labelTitre);
         
-        JTextArea textePhrase = new JTextArea(12, 40);
-        textePhrase.setEditable(false);
-        textePhrase.setLineWrap(true);
-        JScrollPane scrollPane = new JScrollPane(textePhrase);
+        return panelTitre;
+    }
+    
+    public JPanel creerTexteAClassifier() {
+    	//Code de la phrase d'instruction et de la zone de texte contenant le texte à classifier
+    	JPanel panelTexte = new JPanel();
+    	
+    	panelTexte.setLayout(new BoxLayout(panelTexte, BoxLayout.PAGE_AXIS));
         
-        JLabel labelClasse = new JLabel("Sélectionnez la classe correspondante");
+        JLabel labelTexte = new JLabel("Voici le texte à classifier :");
+        labelTexte.setAlignmentX(Component.CENTER_ALIGNMENT);
+        labelTexte.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        
+        panelTexte.add(labelTexte);
+        
+        JTextArea texte = new JTextArea(12, 40);
+        texte.setEditable(false);
+        texte.setLineWrap(true);
+        texte.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        JScrollPane scrollPane = new JScrollPane(texte);
+                
+        panelTexte.add(scrollPane, texte);
+        
+        return panelTexte;
+    }
+    
+    public JPanel creerClasses() {
+    	//Code de la phrase d'instruction et de la comboBox contenant les classes existantes dans les données
+    	JPanel panelClasses = new JPanel();
+    	
+    	panelClasses.setLayout(new BoxLayout(panelClasses, BoxLayout.PAGE_AXIS));
+        
+        JLabel labelClasses = new JLabel("Sélectionnez la classe correspondante");
+        labelClasses.setAlignmentX(Component.CENTER_ALIGNMENT);
+        labelClasses.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));
+        
+        panelClasses.add(labelClasses); 
         
         String[] classes = {
                  "Nourriture",
@@ -42,123 +142,75 @@ public class IHMV1_Training_Design extends JPanel implements ActionListener {
                  "Travail",
                  "Bizarre",
                  "Monuments"
-        };
- 
-        currentClasse = classes[0];
- 
+        }; 
+        currentClasse = classes[0]; 
         JComboBox listeClasses = new JComboBox(classes);
         listeClasses.setEditable(false);
-        listeClasses.addActionListener(this);
-        
-        JPanel panelConfirmation = new JPanel();
-        panelConfirmation.setLayout(new FlowLayout());
-        
-        JButton boutonSkip = new JButton("Skip");
-		panelConfirmation.add(boutonSkip);
-		
-
-		panelConfirmation.add(Box.createRigidArea(new Dimension(100,0)));
-		
-        
-		JButton boutonOk = new JButton("Ok");
-		panelConfirmation.add(boutonOk);
-        
- 
-        //affichage
-        JPanel patternPanel = new JPanel();
-        
-        patternPanel.setLayout(new BoxLayout(patternPanel, BoxLayout.PAGE_AXIS));
-        
-        patternPanel.add(labelTitre);
-        labelTitre.setAlignmentX(Component.CENTER_ALIGNMENT);
-        labelTitre.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        
-        patternPanel.add(labelPhrase);
-        labelPhrase.setAlignmentX(Component.CENTER_ALIGNMENT);
-        labelPhrase.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        
-        patternPanel.add(scrollPane, textePhrase);
-        textePhrase.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        
-        patternPanel.add(labelClasse);
-        labelClasse.setAlignmentX(Component.CENTER_ALIGNMENT);
-        labelClasse.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));        
-        
-        patternPanel.add(listeClasses);
+        //listeClasses.addActionListener(this);
         listeClasses.setAlignmentX(Component.CENTER_ALIGNMENT);        
         listeClasses.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
         
-        patternPanel.add(panelConfirmation);
+        panelClasses.add(listeClasses);
+        
+        return panelClasses;
+    }
+    
+    public JPanel creerConfirmation() {
+    	//Code des boutons Ok et Skip
+        JPanel panelConfirmation = new JPanel();
+        
+        JButton boutonSkip = new JButton("Skip");
+        boutonSkip.setFocusable(false);
+        
+		panelConfirmation.add(boutonSkip);
+		
+		panelConfirmation.add(Box.createRigidArea(new Dimension(100,0)));  
+		
+		JButton boutonOk = new JButton("Ok");
+		boutonOk.setFocusable(false);
+		
+		panelConfirmation.add(boutonOk);
+
         panelConfirmation.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelConfirmation.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         
-        patternPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
-        patternPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
- 
-        frame.add(patternPanel, BorderLayout.PAGE_START);
-        
-        frame.pack();
-        frame.setVisible(true);
-    }
-    
-    public void creerComboBoxClasses(){
-    	setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS)); 
-        String[] classes = {
-                 "Nourriture",
-                 "Jeux",
-                 "Animaux",
-                 "Films",
-                 "Sports",
-                 "Etudes",
-                 "Travail",
-                 "Bizarre",
-                 "Monument"
-        };
- 
-        currentClasse = classes[0];
- 
-        //Set up the UI for selecting a pattern.
-        JLabel label1 = new JLabel("Sélectionnez la classe correspondante");
-        JLabel label2 = new JLabel("ou ajoutez en une à la liste");
- 
-        JComboBox listeClasses = new JComboBox(classes);
-        listeClasses.setEditable(false);
-        listeClasses.addActionListener(this);
+        return panelConfirmation;
     }
  
-    public void actionPerformed(ActionEvent e) {
-    	// /!\ A REMPLIR /!\
-    }
-    
-    public static void centerWindow(Window frame) {
+    public void centerWindow(Window frame) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 3.5);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 3.5);
         frame.setLocation(x, y);
     }
- 
- 
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-//    private static void createAndShowGUI() {
-// 
-//        //Create and set up the content pane.
-//        JComponent newContentPane = new IHMV1_Training_Design();
-//        newContentPane.setOpaque(true); //content panes must be opaque
-//        frame.setContentPane(newContentPane);
-// 
-//    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    	if (e.getSource() == boutonRetourMenu) {
+    		this.dispose();
+			try {
+				new IHMV1_Menu_Design();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+    	}
+		else if (e.getSource() == boutonQuitter) {
+			this.dispose();
+		}
+		else {
+			this.dispose();
+		}		
+    }
  
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-            	new IHMV1_Training_Design();
+				try {
+					new IHMV1_Training_Design();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
     }
